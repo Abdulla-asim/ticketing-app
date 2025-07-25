@@ -70,7 +70,7 @@ const TicketForm = ({ ticketData, editMode }) => {
         method="post"
         onSubmit={handleSubmit}
       >
-        <h3>{editMode? "Edit Ticket" : "Create Your Ticket"}</h3>
+        <h3>{editMode ? "Edit Ticket" : "Create Your Ticket"}</h3>
         <label>Title</label>
         <input
           name="title"
