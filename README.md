@@ -1,5 +1,18 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Ticketing App
+## Ticket Dashboard
+<img width="1917" height="1041" alt="image" src="https://github.com/user-attachments/assets/5d9bc1b3-e6a4-4ef3-b147-34d8629d738e" />
+
+## Create and Edit Tickets
+`Creating a Ticket`
+<img width="1917" height="1041" alt="image" src="https://github.com/user-attachments/assets/47fc2a0c-072a-4a41-9910-97f3ef1aa15c" />
+
+`Editing an Existing Ticket`
+<img width="1917" height="1041" alt="image" src="https://github.com/user-attachments/assets/21e21290-fe68-4096-a08d-2235bab84ed4" />
+
+### `More Features Coming Soon...`
+
 ## Getting Started
 
 First, run the development server:
