@@ -1,7 +1,8 @@
 import mongoose, {Schema} from "mongoose";
 
-mongoose.connect(process.env.MONGODB_URI)
-mongoose.Promise = global.Promise // maybe not needed in latest version of Mongoose
+if (mongoose.connection.readyState == 0) {
+    mongoose.connect(process.env.MONGODB_URI)
+}
 
 // Describing the ticket Schema
 const ticketSchema = new Schema (

@@ -2,8 +2,10 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { createTicket, updateTicket } from "../actions";
 
 const TicketForm = ({ ticketData, editMode }) => {
+  
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -18,36 +20,12 @@ const TicketForm = ({ ticketData, editMode }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    console.log("Edit mode:", editMode);
 
-    if (!editMode) {
-      const res = await fetch("/api/tickets", {
-        method: "POST",
-        body: JSON.stringify({ formData }),
-        "Content-Type": "application/json",
-      });
-
-      if (!res.ok) {
-        throw new Error("Failed to create ticket");
-      }
-    } else {
-      console.log("Updating ticket");
-
-      const res = await fetch(`/api/tickets/${ticketData._id}`, {
-        method: "PUT",
-        body: JSON.stringify({ formData }),
-        "Content-Type": "application/json",
-      });
-
-      if (!res.ok) {
-        throw new Error("Failed to update ticket");
-      }
-      console.log("Form Data for update:", formData);
-    }
-
-    router.refresh();
-    router.push("/");
+    if (!editMode)
+      await createTicket(formData)
+    else 
+      await updateTicket(formData, ticketData._id);
+    router.push("/")
   };
 
   const startingTicketData = {
@@ -55,7 +33,7 @@ const TicketForm = ({ ticketData, editMode }) => {
     description: "",
     progress: 0,
     priority: 1,
-    status: "not started",
+    status: "open",
     category: "Hardware Problem",
   };
 
@@ -170,9 +148,9 @@ const TicketForm = ({ ticketData, editMode }) => {
 
         <label>Status</label>
         <select name="status" value={formData.status} onChange={handleChange}>
-          <option value="Not Started">Not Started</option>
+          <option value="Open">Open</option>
           <option value="Started">Started</option>
-          <option value="Done">Done</option>
+          <option value="Closed">Closed</option>
         </select>
 
         <input

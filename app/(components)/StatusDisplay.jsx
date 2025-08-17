@@ -3,6 +3,7 @@ const StatusDisplay = ({ status }) => {
     let color = "bg-slate-700";
 
     switch (status.toLowerCase().trim()) {
+      case "closed":
       case "done":
         color = "bg-green-200";
         return color; 
@@ -10,6 +11,7 @@ const StatusDisplay = ({ status }) => {
         color = "bg-yellow-200";
         return color;
       case "not started":
+      case "open":
         color = "bg-red-200";
         return color;
     }

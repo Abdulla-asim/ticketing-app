@@ -22,7 +22,7 @@ const TicketCard = ({ ticket }) => {
   // };
 
   return (
-    <div className="flex flex-col bg-[var(--card)] hover:bg-[var(--card-hover)] rounded-md shadow-lg p-3 m-2">
+    <div className="flex flex-col bg-background border-2 hover:bg-secondary shadow-2xs shadow-rose-600 p-3 m-2 text-foreground ">
       <div className="flex mb-3">
         <PriorityDisplay priority={ticket.priority} />
         <div className="ml-auto">
@@ -34,7 +34,7 @@ const TicketCard = ({ ticket }) => {
         <hr className="h-px border-0 bg-[var(--page)] mb-2" />
         <p className="whitespace-pre-wrap">{ticket.description}</p>
         <div className="flex-grow"></div>
-        <div className="flex mt-2">
+        <div className="flex mt-2 bg-color-ring">
           <div className="flex flex-col">
             <p className="text-xs my-1">{ticket.createdAt.toLocaleString()}</p>
             <ProgressDisplay progress={ticket.progress} />
